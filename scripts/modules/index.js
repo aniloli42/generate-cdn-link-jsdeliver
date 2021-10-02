@@ -3,11 +3,13 @@
 
 const getCDNLink = (link, isMinify = false) => {
 	const linkParts = link.split("/")
+
 	const isGithubLink = linkParts.includes("github.com")
 	const indexOfGithub = linkParts.indexOf("github.com")
 
 	// check the link is related github or not
-	if (!isGithubLink) return console.log("This is not Github link.")
+	if (!isGithubLink)
+		return { status: false, message: "This is not Github link." }
 
 	let fileName = linkParts[linkParts.length - 1]
 
@@ -16,15 +18,21 @@ const getCDNLink = (link, isMinify = false) => {
 
 	// check the extension of javascript or css if not then throw error
 	if (!(checkExtension === "js" || checkExtension === "css"))
-		return "Not supported file. Make sure must be CSS or JavaScript"
+		return {
+			status: false,
+			message: "Not supported file. Make sure must be CSS or JavaScript"
+		}
 
 	const githubAccount = linkParts[indexOfGithub + 1]
 	const repoName = linkParts[indexOfGithub + 2]
 	const branchType = linkParts[indexOfGithub + 4]
-	const directoryPath = linkParts
+	let directoryPath = linkParts
 		.slice(indexOfGithub + 5, linkParts.length - 1)
 		.toString()
 		.replace(/,/g, "/")
+
+	// check file is in inner directory, if yes then add
+	if (directoryPath !== "") directoryPath = `/${directoryPath}`
 
 	// if isMinify is true then change the file to compressed file
 	if (isMinify) {
@@ -32,7 +40,10 @@ const getCDNLink = (link, isMinify = false) => {
 	}
 
 	// concat all the parts and generate the link and return it
-	return `https://cdn.jsdelivr.net/gh/${githubAccount}/${repoName}@${branchType}/${directoryPath}/${fileName}`
+	return {
+		status: true,
+		link: `https://cdn.jsdelivr.net/gh/${githubAccount}/${repoName}@${branchType}${directoryPath}/${fileName}`
+	}
 }
 
 export default getCDNLink

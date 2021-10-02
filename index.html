@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>JSDeliver CDN Link Generator</title>
+	<link rel="stylesheet" href="./styles/style.css" />
+	<script src="./scripts/main.js" type="module" defer></script>
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<h2>
+				<span class="title1">JSDELIVER CDN</span><br />
+				<span class="title2">LINK GENERATOR</span>
+			</h2>
+		</header>
+		<main>
+			<!-- Input System -->
+			<div class="input-group">
+				<span id="crossMarkBtn"></span>
+				<textarea type="text" id="linkField">PASTE YOUR GITHUB LINK HERE</textarea>
+			</div>
+
+			<button id="linkGenerate">GENERATE LINK</button>
+
+			<!-- Output of Generated Link -->
+			<div id="linkOutput">
+				<div id="copyButton">Copy</div>
+				<div id="generatedLink">// Output goes here</div>
+			</div>
+		</main>
+
+		<div class="terms">
+			<h2>Note</h2>
+			<ul>
+				<li>Github Repository Must be Public.</li>
+				<li>Javascript & CSS are only support in this generator.</li>
+			</ul>
+		</div>
+	</div>
+</body>
+
+</html>
