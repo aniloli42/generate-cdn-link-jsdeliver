@@ -93,6 +93,7 @@ button {
 
 button:disabled {
 	background-color: var(--primary-color);
+	cursor: not-allowed;
 }
 
 #linkOutput {
@@ -134,6 +135,7 @@ button:disabled {
 	padding: 0;
 	height: revert;
 	min-height: revert;
+	cursor: pointer;
 }
 
 .terms {
