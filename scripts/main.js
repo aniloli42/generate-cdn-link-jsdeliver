@@ -14,6 +14,9 @@ linkField.addEventListener("focus", () => {
 })
 
 linkField.addEventListener("input", () => {
+	linkField.style.height = 2.73 + "em"
+	linkField.style.height = linkField.scrollHeight + "px"
+
 	if (generatedLink !== "// Output goes here") resetAll()
 
 	if (
@@ -57,21 +60,14 @@ function handleGenerateButtonClick() {
 copyButton.addEventListener("click", handleCopyButtonClick)
 
 function handleCopyButtonClick() {
-	const getText = generatedLink.textContent
-	navigator.clipboard.writeText(getText).then(
-		() => {
-			copyButton.textContent = `Copied`
-			setTimeout(() => {
-				copyButton.textContent = `Copy`
-			}, 1000)
-		},
-		() => {
-			copyButton.textContent = `Copied Failed`
-			setTimeout(() => {
-				copyButton.textContent = `Copy`
-			}, 1000)
-		}
-	)
+	generatedLink.removeAttribute("disabled")
+	generatedLink.select()
+	document.execCommand("Copy")
+	window.getSelection().removeAllRanges()
+	generatedLink.setAttribute("disabled", "")
+	copyButton.textContent = `Copied`
+
+	setTimeout(() => (copyButton.textContent = `Copy`), 1000)
 }
 
 // reset
@@ -86,5 +82,6 @@ crossMarkBtn.addEventListener("click", () => {
 	resetAll()
 	linkGenerate.setAttribute("disabled", "")
 	linkField.value = ""
+	linkField.style.height = 2.73 + "em"
 	linkField.focus()
 })
