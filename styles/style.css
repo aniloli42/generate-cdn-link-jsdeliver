@@ -135,7 +135,6 @@ button:disabled {
 	padding: 0;
 	height: revert;
 	min-height: revert;
-	cursor: pointer;
 }
 
 .terms {
@@ -175,6 +174,8 @@ button:disabled {
 	cursor: pointer;
 	display: none;
 	position: relative;
+	border-top-right-radius: 0.5em;
+	border-bottom-right-radius: 0.5em;
 }
 
 #crossMarkBtn.show {
@@ -228,5 +229,11 @@ button:disabled {
 
 	.terms h2 {
 		font-size: 1.2rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width: 1080px;
 	}
 }
