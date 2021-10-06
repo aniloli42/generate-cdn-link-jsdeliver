@@ -10,7 +10,7 @@ const getCDNLink = (link, isMinify = false) => {
 	const linkParts = link.split("/")
 
 	// checking link is vaild or not
-	if (linkParts.length < 7)
+	if (linkParts.length < 6)
 		return { status: false, message: "Invalid Link or Not supported link" }
 
 	// checking for link is related to github or not
@@ -25,7 +25,8 @@ const getCDNLink = (link, isMinify = false) => {
 	let fileName = linkParts[linkParts.length - 1]
 
 	// get the extension from filename
-	let checkExtension = fileName.split(".")[1]
+	let checkExtension = fileName.split(".")
+	checkExtension = checkExtension[checkExtension.length - 1]
 
 	// check the extension of javascript or css if not then throw error
 	if (!(checkExtension === "js" || checkExtension === "css"))
