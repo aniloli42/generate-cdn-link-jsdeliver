@@ -60,15 +60,20 @@ textarea {
 	resize: none;
 	flex: 1;
 	max-height: 5rem;
-	min-height: 2.53em;
-	overflow-y: hidden;
+	height: auto;
+	overflow: scroll;
+	overflow-x: hidden;
 	border-radius: 0.5em;
 	outline: none;
 	border: 1px solid;
 	border-color: var(--primary-color);
-	padding: 0.5em 1em;
+	padding: 0.8em;
 	color: var(--secondary-color);
 	font-size: 1rem;
+}
+
+textarea::-webkit-scrollbar {
+	width: 0;
 }
 
 textarea:focus {
