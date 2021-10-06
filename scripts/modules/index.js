@@ -11,7 +11,7 @@ const getCDNLink = (link, isMinify = false) => {
 
 	// checking link is vaild or not
 	if (linkParts.length < 7)
-		return { status: false, message: "Link Invalid or link not supported" }
+		return { status: false, message: "Invalid Link or Not supported link" }
 
 	// checking for link is related to github or not
 	const isGithubLink = linkParts.includes("github.com")
@@ -19,7 +19,7 @@ const getCDNLink = (link, isMinify = false) => {
 
 	// check the link is related github or not
 	if (!isGithubLink)
-		return { status: false, message: "This is not Github link." }
+		return { status: false, message: "Link is not related to Github." }
 
 	// get file with extension from array
 	let fileName = linkParts[linkParts.length - 1]
@@ -31,7 +31,7 @@ const getCDNLink = (link, isMinify = false) => {
 	if (!(checkExtension === "js" || checkExtension === "css"))
 		return {
 			status: false,
-			message: "Not supported file. Make sure must be CSS or JavaScript"
+			message: "Not supported file. CSS or Javascript only supported"
 		}
 
 	// get the need parts from link through array
