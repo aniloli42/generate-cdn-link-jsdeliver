@@ -2,7 +2,15 @@
 // Supported file: Javascript and CSS
 
 const getCDNLink = (link, isMinify = false) => {
+	if (link.includes("https://")) link = link.slice(8)
+	if (link.includes("http://")) link = link.slice(7)
+
 	const linkParts = link.split("/")
+
+	console.log(link, linkParts.length)
+
+	if (linkParts.length < 7)
+		return { status: false, message: "Link Invalid or link not supported" }
 
 	const isGithubLink = linkParts.includes("github.com")
 	const indexOfGithub = linkParts.indexOf("github.com")
