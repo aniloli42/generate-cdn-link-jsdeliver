@@ -1,35 +1,40 @@
-# CDN Link Generator of Github Repo File
+# Generate CDN Link JSDeliever
 
-This is the small javascript code where it generate the jsdeliver cdn link of the file.
+This is the project of cdn generating from github repository. Javascript and CSS only supported.
 
 ---
+## Table Of Contents
 
-## Table Of Content
-
-  - [Supported File](#supported-file)
+  - [Project Showcase](#project-showcase)
+  - [Technology](#technology)
   - [How to use](#how-to-use)
   - [Credits](#credits)
 
 ---
 
-## Supported File
+## Project Showcase
 
-- CSS
-- Javascript
+![showcase image of the project](./imgs/showcase-img.png)
+
+---
+
+## Technology
+  - HTML
+  - CSS
+  - Javascript
+---
 
 ## How to use
 
-We can easily integrated this file as module which exports the default function.
+> Note: Private repository file cdn link not work.
 
-` getCDNLink(link, isMinify)  `
-
-- link (type: string): 
-  this is the link of the file in github
-
-- isMinify (type: boolean): this is used to get minified link. Default is false. This is optional parameter. Pass true for minified link.
+  - Copy the file link
+  - Paste into the **textbox**
+  - Click on **Generate Link**
+  - Copy link using **copy button**
 
 ---
 
 ## Credits
 
-[Anil Oli](https://github.com/anilioli42) (ForntEnd Web Developer)
+[Anil Oli](https://github.com/anilioli42) (FrontEnd Web Developer)
